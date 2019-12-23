@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TVC_assingment2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="locale">en</string>
+    <string name="locale_name">English</string>
+    <string name="english">English</string>
+    <string name="croatian">Croatian</string>
+    <string name="no_language" translatable="false">"Jezik nije odabran" </string>
+    <string name="invalidInput">"Your input needs to be between 4 and 13 characters, contain letter 'A' at least two times, excatly one '7' and no '?'"</string>
+    <string name="validate">"Validate"</string>
+    <string name="alertMessage">"Enter text"</string>
+    <string name="fizzBuzz" translatable="false">FizzBuzz</string>
+    <string name="negativeButton">Close</string>
+</resources>
