@@ -4,5 +4,4 @@
         android:title="@string/english" />
     <item android:id="@+id/croatian"
         android:title="@string/croatian" />
-
 </menu>

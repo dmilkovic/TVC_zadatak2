@@ -5,8 +5,8 @@
     <string name="locale_name">Hrvatski</string>
     <string name="english">Engleski</string>
     <string name="croatian">Hrvatski</string>
-    <string name="invalidInput">"Vaš unos treba sadržavati 4 do 13 znakova, minimalno dva slova 'A', točno jednu '7' i ne smije sadržavati znak '?'"</string>
-    <string name="validate">Provjeri</string>
-    <string name="alertMessage">Unos teksta</string>
     <string name="negativeButton">Zatvori</string>
+    <string name="fizzBuzz">MarkoPolo</string>
+    <string name="fizz" >Marko</string>
+    <string name="buzz">Polo</string>
 </resources>

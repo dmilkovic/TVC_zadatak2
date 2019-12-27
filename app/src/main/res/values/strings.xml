@@ -6,9 +6,8 @@
     <string name="english">English</string>
     <string name="croatian">Croatian</string>
     <string name="no_language" translatable="false">"Jezik nije odabran" </string>
-    <string name="invalidInput">"Your input needs to be between 4 and 13 characters, contain letter 'A' at least two times, excatly one '7' and no '?'"</string>
-    <string name="validate">"Validate"</string>
-    <string name="alertMessage">"Enter text"</string>
-    <string name="fizzBuzz" translatable="false">FizzBuzz</string>
+    <string name="fizz" >Fizz</string>
+    <string name="buzz">Buzz</string>
+    <string name="fizzBuzz">FizzBuzz</string>
     <string name="negativeButton">Close</string>
 </resources>

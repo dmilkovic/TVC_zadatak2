@@ -7,7 +7,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +23,6 @@ import static hr.rma.sl.tvc_zadatak2.UpdateLocale.getLocale;
 import static hr.rma.sl.tvc_zadatak2.UpdateLocale.isLocaleSet;
 import static hr.rma.sl.tvc_zadatak2.UpdateLocale.loadLocale;
 
-//import static com.example.tvc_zadatak1.UpdateLocale.changeLang;
-
 public class MainActivity extends AppCompatActivity{
     Locale myLocale;
     String currentLanguage;
@@ -39,11 +36,10 @@ public class MainActivity extends AppCompatActivity{
         loadLocale(MainActivity.this);
         currentLanguage = getLocale(MainActivity.this);
         setContentView(R.layout.activity_main);
-        // Toast.makeText(MainActivity.this, "Selected language: " +getLocale(MainActivity.this), Toast.LENGTH_SHORT).show();
 
-        final Button btn = (Button) findViewById(R.id.language_button);
-        Button messageBtn = (Button) findViewById(R.id.message_button);
-        Button textBtn = (Button) findViewById(R.id.text_button);
+        final Button btn = findViewById(R.id.language_button);
+        Button messageBtn = findViewById(R.id.message_button);
+        Button textBtn = findViewById(R.id.text_button);
 
         if (!isLocaleSet(getApplicationContext())) {
             btn.setText("-");
@@ -56,37 +52,30 @@ public class MainActivity extends AppCompatActivity{
                 PopupMenu popup = new PopupMenu(MainActivity.this, btn);
                 //Inflating the Popup using xml file
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
-
-                //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
-                        Intent intent = intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         switch (id) {
                             case R.id.croatian:
-                                //if(!getLocale(getApplicationContext()).equals(getApplicationContext().getResources().getString(R.string.locale)))
                                 if (!getLocale(getApplicationContext()).equals("cro")) {
                                     changeLang("cro", MainActivity.this);
                                     startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                                 }
-                                //setNewLocale(MainActivity.this, LocaleManager.CROATIAN);
                                 break;
                             case R.id.english:
-                                //if(!getLocale(getApplicationContext()).equals(getApplicationContext().getResources().getString(R.string.locale)))
                                 if (!getLocale(getApplicationContext()).equals("en")) {
                                     changeLang("en", MainActivity.this);
                                     startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                                 }
-                                //setNewLocale(MainActivity.this, LocaleManager.ENGLISH);
                                 break;
                             default:
                                 break;
                         }
-                        //Toast.makeText(MainActivity.this,"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 });
-                popup.show();//showing popup menu
+                popup.show();
             }
         });
 
@@ -110,7 +99,7 @@ public class MainActivity extends AppCompatActivity{
                 // Set up the input
                 // set the custom layout
                 customLayout = getLayoutInflater().inflate(R.layout.edit_text_dialog, null);
-                final AlertDialog builder = new AlertDialog.Builder(MainActivity.this).setNegativeButton(R.string.negativeButton, null).setTitle(R.string.fizzBuzz).setView(customLayout).show();
+                final AlertDialog builder = new AlertDialog.Builder(MainActivity.this).setNegativeButton(R.string.negativeButton, null).setView(customLayout).show();
                 builder.setCanceledOnTouchOutside(false);
                 final TextView input = customLayout.findViewById(R.id.editText);
                 Button negativeButton = builder.getButton(AlertDialog.BUTTON_NEGATIVE);
@@ -128,7 +117,7 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-    public  class MyTask1 extends AsyncTask<Integer, String, String> {
+    public class MyTask1 extends AsyncTask<Integer, String, String> {
         @Override
         protected String doInBackground(Integer... params) {
             for(int i = 1; i<=100; i++)
@@ -139,10 +128,10 @@ public class MainActivity extends AppCompatActivity{
                 }
                 String fizzBuzz = "";
                 if (i % 3 == 0) {
-                    fizzBuzz += "Fizz";
+                    fizzBuzz += getResources().getString(R.string.fizz);
                 }
                 if (i % 5 == 0) {
-                    fizzBuzz += "Buzz";
+                    fizzBuzz += getResources().getString(R.string.buzz);
                 }
                 if (fizzBuzz.isEmpty()) {
                     fizzBuzz += i;
@@ -155,7 +144,6 @@ public class MainActivity extends AppCompatActivity{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                // input.append(fizzBuzz + "\n");
             }
             return "Task Completed.";
         }
@@ -164,7 +152,7 @@ public class MainActivity extends AppCompatActivity{
 
         }
         @Override
-        protected void onPreExecute() { ;
+        protected void onPreExecute() {
             TextView input = customLayout.findViewById(R.id.editText);
             input.setText("");
         }
