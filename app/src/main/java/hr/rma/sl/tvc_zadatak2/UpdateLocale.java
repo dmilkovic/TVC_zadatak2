@@ -10,6 +10,7 @@ class UpdateLocale {
 
     static String getLocale(Context context)
     {
+        //get language in sharedPrefferences with key "Language", return "" if it doesn't exist
         String langPref = "Language";
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String language = prefs.getString(langPref, "");
@@ -18,10 +19,12 @@ class UpdateLocale {
 
     static boolean isLocaleSet(Context context)
     {
+        //check if language is set
         return !getLocale(context).equals("");
     }
 
     static void loadLocale(Context context) {
+        //set language
         String language = getLocale(context);
         changeLang(language, context);
     }

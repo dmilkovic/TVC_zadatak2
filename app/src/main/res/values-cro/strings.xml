@@ -9,4 +9,5 @@
     <string name="fizzBuzz">MarkoPolo</string>
     <string name="fizz" >Marko</string>
     <string name="buzz">Polo</string>
+    <string name="chooseLanguage">Odaberite jezik</string>
 </resources>

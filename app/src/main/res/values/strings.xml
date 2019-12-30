@@ -5,9 +5,10 @@
     <string name="locale_name">English</string>
     <string name="english">English</string>
     <string name="croatian">Croatian</string>
-    <string name="no_language" translatable="false">"Jezik nije odabran" </string>
+    <string name="no_language" translatable="false">"Jezik nije odabran"</string>
     <string name="fizz" >Fizz</string>
     <string name="buzz">Buzz</string>
     <string name="fizzBuzz">FizzBuzz</string>
     <string name="negativeButton">Close</string>
+    <string name="chooseLanguage">"Choose language"</string>
 </resources>
