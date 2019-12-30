@@ -4,6 +4,8 @@ package hr.rma.sl.tvc_zadatak2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -46,36 +48,47 @@ public class MainActivity extends AppCompatActivity{
         }
 
         btn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                //Creating the instance of PopupMenu
-                PopupMenu popup = new PopupMenu(MainActivity.this, btn);
-                //Inflating the Popup using xml file
-                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                        int id = item.getItemId();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        switch (id) {
-                            case R.id.croatian:
-                                if (!getLocale(getApplicationContext()).equals("cro")) {
-                                    changeLang("cro", MainActivity.this);
-                                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                }
-                                break;
-                            case R.id.english:
+                int index = 0;
+                if(!getLocale(getApplicationContext()).equals("en"))
+                {
+                    index = 1;
+                }
+
+                String[] colors_array = {"Eng", "Cro"};
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Choose language").setSingleChoiceItems(colors_array, index, new DialogInterface.OnClickListener() {
+
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which)
+                        {
+                            case 0:
                                 if (!getLocale(getApplicationContext()).equals("en")) {
                                     changeLang("en", MainActivity.this);
                                     startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                }else{
+                                    dialog.dismiss();
+                                }
+                                break;
+                            case 1:
+                                if (!getLocale(getApplicationContext()).equals("cro")) {
+                                    changeLang("cro", MainActivity.this);
+                                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                }else{
+                                    dialog.dismiss();
                                 }
                                 break;
                             default:
                                 break;
                         }
-                        return true;
                     }
                 });
-                popup.show();
+                builder.create();
+                builder.show();
             }
         });
 
