@@ -34,6 +34,7 @@ class UpdateLocale {
             return;
         Locale myLocale = new Locale(lang);
         saveLocale(lang, context);
+        //update locale
         Locale.setDefault(myLocale);
         android.content.res.Configuration config = new android.content.res.Configuration();
         config.locale = myLocale;
@@ -41,6 +42,7 @@ class UpdateLocale {
     }
 
     static void saveLocale(String lang, Context context) {
+        //save language to sharedPreferences
         String langPref = "Language";
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();

@@ -2,12 +2,10 @@ package hr.rma.sl.tvc_zadatak2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity{
 
         languageBtn = findViewById(R.id.language_button);
         messageBtn = findViewById(R.id.message_button);
-        fizzBuzzBtn = findViewById(R.id.text_button);
+        fizzBuzzBtn = findViewById(R.id.fizzBuzzButton);
         languagesArray = new String[]{getResources().getString(R.string.english), getResources().getString(R.string.croatian)};
 
         //if language isn't set show "-"
@@ -212,6 +210,4 @@ public class MainActivity extends AppCompatActivity{
             input.append(values[0]);
         }
     }
-
-
 }
