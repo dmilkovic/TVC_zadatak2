@@ -23,9 +23,11 @@ import static hr.rma.sl.tvc_zadatak2.UpdateLocale.loadLocale;
 public class MainActivity extends AppCompatActivity{
     private String currentLanguage;
     private View customLayout;
-    private Button languageBtn, messageBtn, fizzBuzzBtn;
+    private Button languageBtn, messageBtn, fizzBuzzBtn, positiveButton;
     private int languageIndex = 0;
     private String[] languagesArray;
+    private FizzBuzz fizzBuzz;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,15 +113,14 @@ public class MainActivity extends AppCompatActivity{
                 customLayout = getLayoutInflater().inflate(R.layout.fizz_buzz_dialog, null);
                 final AlertDialog builder = new AlertDialog.Builder(MainActivity.this).setPositiveButton(R.string.positive_button, null).setNegativeButton(R.string.negative_button, null).setView(customLayout).show();
                 builder.setCanceledOnTouchOutside(false);
-                Button positiveButton = builder.getButton(AlertDialog.BUTTON_POSITIVE);
+                positiveButton = builder.getButton(AlertDialog.BUTTON_POSITIVE);
                 Button negativeButton = builder.getButton(AlertDialog.BUTTON_NEGATIVE);
-
-                //create fizzBuzz process
-                final FizzBuzz fizzBuzz = new FizzBuzz(MainActivity.this);
 
                 positiveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //create new process
+                        fizzBuzz = new FizzBuzz(MainActivity.this);
                         //start process with sleep interval of 100ms
                         fizzBuzz.execute(100);
                     }
@@ -189,6 +190,7 @@ public class MainActivity extends AppCompatActivity{
             if (activity == null || activity.isFinishing()) {
                 return;
             }
+            positiveButton.setEnabled(true);
         }
         @Override
         protected void onPreExecute() {
@@ -204,6 +206,7 @@ public class MainActivity extends AppCompatActivity{
             TextView input = customLayout.findViewById(R.id.editText);
             input.setMovementMethod(ScrollingMovementMethod.getInstance());
             input.setText("");
+            positiveButton.setEnabled(false);
         }
         @Override
         protected void onProgressUpdate(String... values) {
