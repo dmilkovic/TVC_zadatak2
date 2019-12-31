@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
@@ -107,14 +108,23 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // set the custom layout
-                customLayout = getLayoutInflater().inflate(R.layout.edit_text_dialog, null);
-                final AlertDialog builder = new AlertDialog.Builder(MainActivity.this).setNegativeButton(R.string.negativeButton, null).setView(customLayout).show();
+                customLayout = getLayoutInflater().inflate(R.layout.fizz_buzz_dialog, null);
+                final AlertDialog builder = new AlertDialog.Builder(MainActivity.this).setPositiveButton(R.string.positive_button, null).setNegativeButton(R.string.negative_button, null).setView(customLayout).show();
                 builder.setCanceledOnTouchOutside(false);
+                Button positiveButton = builder.getButton(AlertDialog.BUTTON_POSITIVE);
                 Button negativeButton = builder.getButton(AlertDialog.BUTTON_NEGATIVE);
-                //create and start fizzBuzz process
+
+                //create fizzBuzz process
                 final FizzBuzz fizzBuzz = new FizzBuzz(MainActivity.this);
-                //start process with sleep interval of 100ms
-                fizzBuzz.execute(100);
+
+                positiveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //start process with sleep interval of 100ms
+                        fizzBuzz.execute(100);
+                    }
+                });
+
                 negativeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -192,6 +202,7 @@ public class MainActivity extends AppCompatActivity{
 
             //clear text before start
             TextView input = customLayout.findViewById(R.id.editText);
+            input.setMovementMethod(ScrollingMovementMethod.getInstance());
             input.setText("");
         }
         @Override
@@ -205,8 +216,8 @@ public class MainActivity extends AppCompatActivity{
             }
             //update text and scroll to bottom
             TextView input = customLayout.findViewById(R.id.editText);
-            ScrollView scrollView = customLayout.findViewById(R.id.horizontalScrollView1);
-            scrollView.fullScroll(View.FOCUS_DOWN);
+     //       ScrollView scrollView = customLayout.findViewById(R.id.horizontalScrollView1);
+       //     scrollView.fullScroll(View.FOCUS_DOWN);
             input.append(values[0]);
         }
     }

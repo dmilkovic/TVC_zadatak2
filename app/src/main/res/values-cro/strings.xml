@@ -5,7 +5,8 @@
     <string name="locale_name">Hrvatski</string>
     <string name="english">Engleski</string>
     <string name="croatian">Hrvatski</string>
-    <string name="negativeButton">Zatvori</string>
+    <string name="positive_button">Pokreni</string>
+    <string name="negative_button">Zatvori</string>
     <string name="fizzBuzz">MarkoPolo</string>
     <string name="fizz" >Marko</string>
     <string name="buzz">Polo</string>

@@ -9,6 +9,7 @@
     <string name="fizz" >Fizz</string>
     <string name="buzz">Buzz</string>
     <string name="fizzBuzz">FizzBuzz</string>
-    <string name="negativeButton">Close</string>
+    <string name="negative_button">Close</string>
+    <string name="positive_button">Start</string>
     <string name="chooseLanguage">"Choose language"</string>
 </resources>

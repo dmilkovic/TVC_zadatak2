@@ -14,18 +14,16 @@
         android:text="@string/fizzBuzz"
         android:textColor="@color/colorAccent"
         />
-    <ScrollView
-        android:id="@+id/horizontalScrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="160sp"
-        android:layout_marginTop ="5sp"
-        android:scrollbarStyle="outsideOverlay" >
-        <TextView
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    </ScrollView>
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:maxLines="10"
+        android:gravity="bottom"
+        android:scrollbars="vertical"
+        >
+    </TextView>
 
 </LinearLayout>
