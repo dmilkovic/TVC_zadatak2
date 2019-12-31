@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity{
 
         languageBtn = findViewById(R.id.language_button);
         messageBtn = findViewById(R.id.message_button);
-        fizzBuzzBtn = findViewById(R.id.fizzBuzzButton);
+        fizzBuzzBtn = findViewById(R.id.fizz_buzz_button);
         languagesArray = new String[]{getResources().getString(R.string.english), getResources().getString(R.string.croatian)};
 
         //if language isn't set show "-"
