@@ -219,8 +219,6 @@ public class MainActivity extends AppCompatActivity{
             }
             //update text and scroll to bottom
             TextView input = customLayout.findViewById(R.id.editText);
-     //       ScrollView scrollView = customLayout.findViewById(R.id.horizontalScrollView1);
-       //     scrollView.fullScroll(View.FOCUS_DOWN);
             input.append(values[0]);
         }
     }
