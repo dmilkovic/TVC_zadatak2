@@ -1,4 +1,22 @@
 # TVC_zadatak2
+The app should consist of one page and satisfy the following conditions:
+- start page needs to contain a title and a message. Style of title and message should be different and defined using styles
+- there should be three buttons underneath the message
+- show the current language in the first button of "-" if the language isn't chosen
+When starting the device no language is chosen
+- on the button click open a window which offers to select a language: Croatian or English
+- when the language is chosen app should refresh the screen and translate text to the selected language
+- chosen language should be saved after the user restarts the app
+- use SharedPreferences for saving the language
+- if the language isn't chosen click on the second button should show a Toast with message “Jezik
+nije odabran”. This message shouldn't be translated
+- if the language is chosen click on the second button should open a window with text "Hello World!" translated to the selected language
+- click outside of the opened window should close the window
+- the third button should open a window with a button
+- on button click start FizzBuzz process which reproduces a list of strings and writes them in the window. The window needs to have
+a closing button and shouldn't be closed on click outside of the window
+- texts which are written on the screen should be read from resources
+
 Aplikacija se treba sastojati od jedne stranice i zadovoljavati slijedeće uvjete:
 - početna stranica treba imati naslov i poruku. Izgled naslova i poruke treba biti jasno različit,
 te definiran preko stilova
