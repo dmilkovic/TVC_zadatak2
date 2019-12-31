@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity{
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
 
-            // get refference to activity if it exists
+            // get reference to activity if it exists
             MainActivity activity = activityReference.get();
             if (activity == null || activity.isFinishing()) {
                 return;
