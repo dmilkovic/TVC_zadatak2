@@ -1,6 +1,7 @@
 package hr.rma.sl.tvc_zadatak2;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -131,8 +132,11 @@ public class MainActivity extends AppCompatActivity{
                 negativeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //make process cancellable
-                        fizzBuzz.cancel(true);
+                        if(fizzBuzz != null)
+                        {
+                            //cancel process
+                            fizzBuzz.cancel(true);
+                        }
                         builder.dismiss();
                     }
                 });
@@ -149,6 +153,7 @@ public class MainActivity extends AppCompatActivity{
             activityReference = new WeakReference<>(context);
         }
 
+        @SuppressLint("WrongThread")
         @Override
         protected String doInBackground(Integer... params) {
             MainActivity activity = activityReference.get();
@@ -161,6 +166,7 @@ public class MainActivity extends AppCompatActivity{
                 //if process is cancelled break the loop
                 if(isCancelled())
                 {
+                    onCancelled();
                     break;
                 }
                 String fizzBuzzStr = "";
@@ -183,6 +189,7 @@ public class MainActivity extends AppCompatActivity{
             }
             return "Task Completed.";
         }
+
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
