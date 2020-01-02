@@ -10,7 +10,7 @@ class UpdateLocale {
 
     static String getLocale(Context context)
     {
-        //get language in sharedPrefferences with key "Language", return "" if it doesn't exist
+        //get language in sharedPreferences with key "Language", return "" if it doesn't exist
         String langPref = "Language";
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String language = prefs.getString(langPref, "");

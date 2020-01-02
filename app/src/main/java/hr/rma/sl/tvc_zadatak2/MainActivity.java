@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +30,9 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //translate title to selected language
+        this.setTitle(R.string.app_name);
 
         loadLocale(MainActivity.this);
         currentLanguage = getLocale(MainActivity.this);
